@@ -23,6 +23,7 @@ public class Storeuser extends store {
 		try {
 			new DBconnect().DBSetting();
 		} catch (SQLException e) {
+			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "서버와 연결이 되지 않았습니다.");
 			return 0;
 		}

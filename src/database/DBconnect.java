@@ -8,7 +8,7 @@ public class DBconnect {
 	public static Connection con;
 	public static Statement stmt;
 	public void DBSetting() throws SQLException{
-		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false","root","ehgus@0907");
+		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false","root","1234");
 		stmt=con.createStatement();
 	}
 }
