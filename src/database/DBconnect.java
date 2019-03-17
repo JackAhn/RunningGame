@@ -10,5 +10,11 @@ public class DBconnect {
 	public void DBSetting() throws SQLException{
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false","root","1234");
 		stmt=con.createStatement();
+		try {
+			stmt.execute("use runninggame");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 }

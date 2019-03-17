@@ -44,7 +44,6 @@ public class Storeuser extends store {
 		if (ct != 1) {
 			String command = "INSERT INTO user (Name, ID, PASSWORD) VALUES";
 			try {
-				DBconnect.stmt.execute("USE runninggame");
 				command += "('" + name + "','" + id + "','" + pw + "')";
 				DBconnect.stmt.executeUpdate(command);
 			} catch (SQLException e) {

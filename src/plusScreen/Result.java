@@ -92,14 +92,9 @@ class store {
 	store(String id, int gamescore) {
 		String ID = id;
 		int score = gamescore;
+		String command = "INSERT INTO `rank` (Name, Score) VALUES";
 		try {
 			new DBconnect().DBSetting();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-		}
-		String command = "INSERT INTO rank (Name, Score) VALUES";
-		try {
-			DBconnect.stmt.execute("USE runninggame");
 			command += "('" + id + "','" + gamescore + "')";
 			DBconnect.stmt.executeUpdate(command);
 		} catch (SQLException e) {

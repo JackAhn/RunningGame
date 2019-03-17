@@ -12,9 +12,11 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.synth.SynthSplitPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -41,14 +43,9 @@ public class Rankscreen extends JDialog implements ActionListener{
 		getContentPane().setLayout(null);
 		this.getContentPane().setBackground(Color.WHITE);
 		setResizable(false);
-		String query = "SELECT * FROM runninggame.rank";
 		try {
 			new DBconnect().DBSetting();
-			System.out.println("접속 성공");
-		} catch (SQLException e) {
-			System.out.println("접속 실패");
-		}
-		try {
+			String query = "SELECT * FROM `rank`";
 			ResultSet rs = DBconnect.stmt.executeQuery(query);
 			while (rs.next()) {
 				int a = rs.getInt("Score");
@@ -61,9 +58,12 @@ public class Rankscreen extends JDialog implements ActionListener{
 
 		}
 		Collections.sort(rankscore, new changeinteger());
-		int i = rankscore.size();
+		if(rankscore.size()==0) {
+			JOptionPane.showMessageDialog(null, "플레이 데이터가 없습니다.", "에러", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 		j = 0;
-		while (j <  10) {
+		while (j <  rankscore.size()) {
 			String[] data = { rank + "위", rankscore.get(j) + "점" };
 			tabledata[j][0] = data[0];
 			tabledata[j][1] = data[1];

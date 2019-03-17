@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -19,7 +21,7 @@ import login.Login;
 import plusScreen.Result;
 import plusScreen.Soundclip;
 
-public class Gamescreen extends JFrame{
+public class Gamescreen extends JFrame implements WindowListener{
 	Login lc2;
 	Soundclip sc2;
 	CardLayout card;
@@ -40,6 +42,48 @@ public class Gamescreen extends JFrame{
 		ps.setFocusable(true);
 		add(ps);
 		setVisible(true);
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.exit(0);
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

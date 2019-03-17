@@ -60,11 +60,6 @@ public class Mainscreen extends JPanel implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					new DBconnect().DBSetting();
-				} catch (SQLException e) {
-					JOptionPane.showMessageDialog(null, "서버에 접속되지 않았습니다.");
-				}
 				String query = "DELETE FROM runninggame.user WHERE ID ='" + ID + "'";
 					try {
 						DBconnect.stmt.executeUpdate(query);

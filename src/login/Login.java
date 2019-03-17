@@ -114,10 +114,6 @@ public class Login extends JFrame implements ActionListener {
 				String query = "SELECT Name, PASSWORD FROM runninggame.user WHERE ID ='" + id + "'";
 				try {
 					new DBconnect().DBSetting();
-				} catch (SQLException e) {
-					JOptionPane.showMessageDialog(null, "서버에 접속되지 않았습니다.");
-				}
-				try {
 					ResultSet rs = DBconnect.stmt.executeQuery(query);
 					while (rs.next()) {
 						if (pw.equals(rs.getString("PASSWORD"))) {
